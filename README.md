@@ -9,3 +9,10 @@ Technik und Bauwesen in der Landwirtschaft e.V. Darmstadt. URL : https://daten.k
 
 Gesamtverband der Deutschen Versicherungswirtschaft e.V.(2018). Entwicklung des durchschnittlichen Zinssatzes für Spareinlagen (Sparbuchzinsen) in Deutschland in den Jahren
 1975 bis 2017“. In: Statistisches Taschenbuch der Versicherungswirtschaft. ISSN:0936-1960.
+
+
+![Risiko für den Eingriffsverursacher](plots/risiko_verursacher.svg)
+
+![Risiko für den Naturschtz](plots/risiko_naturschutz.svg)
+
+![Risiko für den Landwirt](plots/risiko_landwirt.svg)

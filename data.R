@@ -115,7 +115,8 @@ landRisiko = risikoLandwirt(kostenGesamteFläche, fixPreisL, jahre, z)
 # Diagramme--------------------------------- 
 par(mfrow=c(1,1), mar = c(4, 4, 4, 2) + 0.1, family = "serif") # Zürücksetzen der Anzahl plots pro Bild
 
-#hist risiko eingriff mit % 
+#hist risiko eingriff mit %
+svg('plots/risiko_verursacher.svg', width=12)
 qE = quantile(eingriffRisiko, probs = c(0.05, 0.5, 0.95))
 histEingriff = hist(eingriffRisiko, plot=F, breaks=35)
 histEingriff$density = histEingriff$counts/sum(histEingriff$counts)*100
@@ -140,8 +141,10 @@ plot(histEingriff, freq = F, xaxt="n",
     text(qE[3]-3000, 6, labels = paste(round(qE[3]), "€"), srt = 90, col = "red")
     text(qE[2]-3000, 11, labels = paste(round(qE[2]), "€"), srt = 90, col = "blue")
     axis(1, at = seq(0, 160000, by = 20000))
+dev.off()
 
 #hist risiko natur mit % 
+svg('plots/risiko_naturschutz.svg', width=12)
 qN = quantile(naturRisiko, probs = c(0.05, 0.5, 0.95))
 histNatur = hist(naturRisiko, plot=F, breaks=35)
 histNatur$density = histNatur$counts/sum(histNatur$counts)*100
@@ -165,9 +168,10 @@ print(paste("Risiko natur: fixe Zahlung:",round(fixPreisN),"€ (Faktor:", facto
     #text(qN[3]-1, 5, labels = paste(round(qN[3]), "J."), srt = 90, col = "red")
     #text(qN[2]-1, 10, labels = paste(round(qN[2]), "J."), srt = 90, col = "blue")
 
-    
+dev.off()
 
 #hist landwirt
+svg('plots/risiko_landwirt.svg', width=12)
 par(family = "serif")
 qL = quantile(landRisiko, probs = c(0.05, 0.5, 0.95))
 histLand = hist(landRisiko, plot=F, breaks = 50)
@@ -191,6 +195,5 @@ plot(histLand,freq=FALSE, col= "grey", xlab = "Betrag €", ylim = c(0,10), xaxt
     text(qL[2]-4000, 9, labels = paste(round(qL[2]), "€"), srt = 90, col = "blue")
     axis(1, at = seq(-100000, max(landRisiko), by = 10000))
 
-
-
+dev.off()
 
